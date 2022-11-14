@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        .card{
+            width: 500px;
+        }
+        #bt2{
+            margin-left: 220px;
+        }
+        button{
+            height: 50px;
+            padding-top: 20px;
+            text-align: center;
+            width: 120px;
+        }
+        #back{
+            padding-top: 20px;
+            height: 70px;
+        }
+        /* img{
+          position: absolute;
+          top: 100px;
+        } */
+
+        .coin-flip{
+  width: 100px;
+  height: 100px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform-style: preserve-3d;
+  position: relative;
+  animation: fly 1.5s ease-in-out 0s infinite alternate;
+}
+.coin-flip img{
+  width: 100px;
+}
+
+.coin-heads, .coin-tails {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  /* margin-top: 100px; */
+}
+
+.coin-heads{
+  animation: flip-head 1s linear 0s infinite alternate;
+}
+.coin-tails{
+  animation: flip-tail 1s linear 0s infinite alternate;
+}
+
+@keyframes fly {
+  0% { top: 100%; }
+  100% { top: 0%; }
+}
+
+@keyframes flip-head {
+  0%, 100% { transform: rotateX(0deg); }
+  50% { transform: rotateX(180deg); }
+}
+
+@keyframes flip-tail {
+  0%, 100% { transform: rotateX(180deg); }
+  50% { transform: rotateX(0deg); }
+}
+
+    .ims{
+        height: 100px;
+        width: 100px;
+        padding-left: 100px;
+        position: absolute;
+    }
+    </style>
+</head>
+<body>
+    <div class="row" style="height: 100px;"></div>
+    <div class="container row">
+        <div class="col-sm-4"></div>
+        <div class="col">
+             <!-- Card -->
+    <div class="card">
+
+    <!-- Card image -->
+    <div class="view overlay" style="height:300px;">
+        <div class="ims" id="cf1">
+            <div class="ims" id="cfh">
+              <img src="head.png" style="height: 100px;" id="im1">
+            </div>
+            <div class="ims" id="cft">
+              <img src="tail.png" style="height: 100px;" id="im2">
+            </div>
+          </div>
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+  
+    <!-- Card content -->
+    <div class="card-body">
+      <div class="row" style="height: 30px;"></div>
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col shadow-lg p-3 mb-5 bg-white rounded" id="back">
+            <div id="rs" class="row">
+                <div class="col-sm-9"><p id="p1">Heads : <span id="sh">0</span></p></div>
+                <div class="col"><p id="p2"><span id="st">0</span> : Tails</p></div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+      <!-- Button -->
+      <button type="button" class="btn btn-primary" onclick="toss()">Flip Coin</button>
+      <button type="button" class="btn btn-danger" id="bt2" onclick="reset()">Reset</button>
+  
+    </div>
+  
+  </div>
+  <!-- Card -->
+        </div>
+    </div>
+</body>
+<script>
+    var s=0;
+    var d=0;
+    function toss(){
+            document.getElementById("cf1").className="coin-flip"
+            document.getElementById("cfh").className="coin-heads"
+            document.getElementById("cft").className="coin-tails"
+        var a=Math.floor(Math.random()*2)
+        if (a==1) {
+            // document.getElementById("cf1").className="coin-flip"
+            // document.getElementById("cfh").className="coin-heads"
+            // document.getElementById("cft").className="coin-tails"
+            // sleep(100);
+            setTimeout(rotationh,2500)
+            
+        } else {
+            // document.getElementById("cf1").className="coin-flip"
+            // document.getElementById("cfh").className="coin-heads"
+            // document.getElementById("cft").className="coin-tails"
+            // await.sleep(3000)
+            setTimeout(rotationt,2500)
+
+
+            //inganem cheyyan pattm wait cheypikaan async venam .
+            // async function delayedGreeting() {
+            //     console.log("Hello");
+            //     await sleep(2000);
+            //     console.log("World!");
+            // }
+            
+        }
+    }
+    function rotationt(){
+            console.log("dncj")
+            document.getElementById("cf1").className="ims"
+            document.getElementById("cfh").className="ims"
+            document.getElementById("cft").className="ims"
+            document.getElementById("im1").src="head.png"
+            document.getElementById("im2").src="tail.png"
+            d=d+1
+            document.getElementById("st").innerHTML=d;
+    }
+    function rotationh(){
+            console.log("dncj")
+            document.getElementById("cf1").className="ims"
+            document.getElementById("cfh").className="ims"
+            document.getElementById("cft").className="ims"
+            document.getElementById("im1").src="tail.png"
+            document.getElementById("im2").src="head.png"
+            s=s+1;
+            document.getElementById("sh").innerHTML=s;
+    }
+    function reset(){
+        location.reload();
+    }
+    
+</script>
+</html>

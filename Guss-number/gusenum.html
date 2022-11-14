@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    header{
+        background-color: black;
+        color: white;
+    }
+    section{
+        background-color: darkgray;
+    }
+    #hh{
+        margin-top:-15px ;
+        padding-top: 20px;
+    }
+</style>
+<body>
+    <header>
+        <center>
+            <h1><b>LET'S GUESS THE NUMBER.</b></h1>
+            <p>Its a game to guess the number, winner get amazing prizes..</p>
+        </center>
+    </header>
+    <section>
+        <center>
+            <h4 id="hh">Guess a number between 0 to 6.</h4>
+            <p>You only get 5 chances</p><br><br>
+            <input type="text" placeholder="enter the number" required id="tx"><br>
+            <button onclick="guess()">Check</button><br><br>
+            <p id="pp">  </p>
+        </center>
+    </section>
+    <script>
+        var count=0;
+       function guess()
+        {
+            count++;
+            if (count<5) {
+                var a=document.getElementById("tx").value;
+            var b=Math.floor(Math.random()*6);
+            document.getElementById("pp").innerHTML=null;
+            if (a==b) {
+                document.getElementById("pp").innerHTML="Congratulations"
+            } else {
+                document.getElementById("pp").innerHTML="Better luck next time..."
+            }
+            }else{
+            document.write("You have exceeded the limit...");
+        }
+        }
+        
+    </script>
+</body>
+</html>

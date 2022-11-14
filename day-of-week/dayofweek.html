@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@300&family=Oswald:wght@300;400&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        .btn-circle.btn-xl {
+            width: 100px;
+            height: 100px;
+            padding: 10px 16px;
+            border-radius: 55px;
+            font-size: 12px;
+            text-align: center;
+        }
+        header{
+            font-family: 'Dancing Script', cursive;
+        }
+        #td{
+            font-size: 30px;
+        }
+        body{
+            background-color: rgb(140, 181, 181);
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div class="row" style="height: 100px;"></div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col"><h1><b>DAY OF WEEK</b></h1></div>
+            <div class="row" style="height: 250px;"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col" id="td">today is</div>
+        </div>
+        <div class="row" style="height: 80px;"></div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col"><button type="button" class="btn btn-dark btn-circle btn-xl" onclick="date1()" id="dt">DATE</button></div>
+            <div class="col"><button type="button" class="btn btn-dark btn-circle btn-xl" onclick="day1()" id="dy">DAY</button></div>
+            <div class="col"><button type="button" class="btn btn-dark btn-circle btn-xl" onclick="month1()" id="mn">MONTH</button></div>
+            <div class="col"><button type="button" class="btn btn-dark btn-circle btn-xl" onclick="year1()" id="yr">YEAR</button></div>
+        </div>
+        <div class="row" style="height: 30px;"></div>
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col"><button type="button" class="btn btn-dark btn-circle btn-xl" onclick="time1()" id="tt">TIME</button></div>
+        </div>
+    </header>
+</body>
+<script>
+    var d=new Date();
+    function day1(){
+        console.log("dw")
+        var arr=["SUNDAY", "MONDAY", "TUESDAY", "WEDNESSDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
+        var a=d.getDay();
+        document.getElementById("dy").innerHTML=arr[a];
+    }
+    function date1(){
+        var ac=d.getMonth();
+        ac=parseInt(ac);
+        ac=ac+1;
+        var ad=d.getFullYear();
+        var ab=d.getDate();
+        document.getElementById("dt").innerHTML=ab+"/"+ac+"/"+ad;
+    }
+    function month1(){
+        var arr2=["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
+        var b=d.getMonth();
+        document.getElementById("mn").innerHTML=arr2[b];
+    }
+    function year1(){
+        document.getElementById("yr").innerHTML=d.getFullYear();
+    }
+    function time1(){
+        var h=d.getHours();
+        var m=d.getMinutes();
+        var sec=d.getSeconds();
+        document.getElementById("tt").innerHTML=h+":"+m+":"+sec;
+    }
+</script>
+</html>
